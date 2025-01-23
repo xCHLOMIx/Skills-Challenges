@@ -10,7 +10,10 @@ export default {
         work : 'Work Sans'
       },
       colors : {
-        blue : '#2B71F0'
+        primary : '#2B71F0',
+        secondary: '#03192E',
+        open:"#0F973D",
+        
       }
     },
   },
