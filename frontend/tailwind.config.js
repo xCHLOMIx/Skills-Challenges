@@ -3,6 +3,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+      "./node_modules/rizzui/dist/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -10,7 +11,8 @@ export default {
         work : 'Work Sans'
       },
       colors : {
-        blue : '#2B71F0'
+        primary : '#2B71F0',
+        offwhite : '#F9FAFB'
       }
     },
   },

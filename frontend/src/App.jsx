@@ -4,17 +4,17 @@ import './App.css'
 import Dashboard from './pages/admin/Dashboard'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path='/'
-          element={<Dashboard />}
-        />
-      </Routes>
-    </BrowserRouter>
+    <div className="font-work">
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path='/'
+            element={<Dashboard />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </div>
   )
 }
 
