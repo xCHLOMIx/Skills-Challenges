@@ -4,8 +4,6 @@ import './App.css'
 import Dashboard from './pages/admin/Dashboard';
 import HomePage from './pages/users/HomePage';
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <BrowserRouter>
       <Routes>
