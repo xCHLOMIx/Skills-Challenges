@@ -9,7 +9,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            path='/'
+            path='/admin/dashboard'
             element={<Dashboard />}
           />
         </Routes>
