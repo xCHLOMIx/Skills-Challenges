@@ -1,8 +1,8 @@
 
 
-const PrimaryButton = ({content}) => {
+const PrimaryButton = ({content,styles}) => {
   return (
-        <button className="py-3 px-6 rounded-[6px] bg-secondary text-white" >
+        <button className={styles} >
             {content}
         </button>
   )

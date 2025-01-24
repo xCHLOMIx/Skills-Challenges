@@ -1,10 +1,10 @@
 import Navbar from "../../components/Users/Navbar";
 
-import ResponsiveNavbar from '../../components/Users/ResponsiveNavbar'
+import Card from '../../components/Users/Card'
 
 const HomePage = () => {
   return (
-    <div><ResponsiveNavbar/></div>
+    <div className="mx-24"><Card/></div>
   )
 }
 

@@ -13,6 +13,7 @@ export default {
       colors : {
         primary : '#2B71F0',
         secondary: '#03192E',
+        offwhite : '#F9FAFB',
         open:"#0F973D",
         
       }
