@@ -2,7 +2,7 @@ import { GoSearch } from "react-icons/go";
 import { FaRegBell } from "react-icons/fa";
 import { RiMenu2Line } from "react-icons/ri";
 
-const Navbar = ({ toggleSideBar }) => {
+const DashboardNavbar = ({ toggleSideBar }) => {
     return (
         <div className="bg-white w-full p-3 flex justify-between gap-2 max-sm:pr-3 pr-7">
             <RiMenu2Line onClick={ toggleSideBar } className="hidden max-sm:block" size={"40px"} />
@@ -24,4 +24,4 @@ const Navbar = ({ toggleSideBar }) => {
     );
 }
 
-export default Navbar;
+export default DashboardNavbar;
