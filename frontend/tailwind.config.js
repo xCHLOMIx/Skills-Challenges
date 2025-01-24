@@ -11,7 +11,11 @@ export default {
       },
       colors : {
         primary : "#2B71F0",
-        offwhite : "#F9FAFB"
+        "light-blue" : "#D0E0FC",
+        "white-blue" : "#E7F6EC",
+        offwhite : "#F9FAFB",
+        'slate-dark' : "#475367",
+        'slate-light' : "#E4E7EC"
       }
     },
   },

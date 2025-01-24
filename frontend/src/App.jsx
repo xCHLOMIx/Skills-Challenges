@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import Dashboard from './pages/admin/Dashboard'
+import DashboardLayout from './layouts/DashboardLayout'
 
 function App() {
   return (
@@ -9,8 +9,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            path='/admin/dashboard'
-            element={<Dashboard />}
+            path='/admin/*'
+            element={<DashboardLayout />}
           />
         </Routes>
       </BrowserRouter>
