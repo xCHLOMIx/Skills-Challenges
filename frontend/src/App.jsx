@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import DashboardLayout from './layouts/DashboardLayout'
+import HomePage from './pages/users/HomePage'
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
             path='/admin/*'
             element={<DashboardLayout />}
           />
-            <Route path='/home' exact element={<HomePage/>}></Route>
+            <Route path='/home' exact element={<HomePage />}></Route>
 
         </Routes>
       </BrowserRouter>
