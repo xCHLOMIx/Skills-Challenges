@@ -63,7 +63,7 @@ const NewChallenge = () => {
     <div className="w-full flex justify-center">
     <div className="rounded-md  bg-white border border-slate-light md:p-4 p-2 mb-10  ">
       <div className="text-center my-4">
-        <h2 className="capitalize text-xl">Create new challenge</h2>
+        <h2 className="capitalize text-xl font-semibold">Create new challenge</h2>
         <p className='text-sm text-slate-mid'>Fill out these details to build your broadcast</p>
       </div>
       <form onSubmit={handleSubmit}>
