@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Dashboard from "../pages/admin/Dashboard";
 import DashboardNavbar from "../components/dashboard/DashboardNavbar";
 import Challenges from "../pages/admin/Challenges";
-
+import NewChallenge from "../components/dashboard/NewChallenge";
 const DashboardLayout = () => {
     const [isOpen, setIsOpen] = useState(false)
 
@@ -22,7 +22,7 @@ const DashboardLayout = () => {
             <Sidebar isOpen={isOpen} />
             <div className="w-full">
                 <DashboardNavbar toggleSideBar={toggleSideBar} />
-                <div className="p-8 overflow-scroll h-full">
+                <div className="md:p-8 p-4 overflow-scroll h-full">
                     <Routes>
                         <Route
                             path="/dashboard"
@@ -32,6 +32,9 @@ const DashboardLayout = () => {
                             path="/challenges"
                             element={<Challenges />}
                         />
+                        
+                        <Route path="/newChallenge" element={<NewChallenge/>}/>
+                        
                     </Routes>
                 </div>
             </div>

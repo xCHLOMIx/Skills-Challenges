@@ -18,7 +18,8 @@ export default {
         "white-blue" : "#E7F6EC",
         offwhite : "#F9FAFB",
         'slate-dark' : "#475367",
-        'slate-light' : "#E4E7EC"
+        'slate-light' : "#E4E7EC",
+        'slate-mid':'#8C94A6'
       }
     },
   },
