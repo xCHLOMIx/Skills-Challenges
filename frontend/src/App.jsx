@@ -13,11 +13,8 @@ function App() {
             path='/admin/*'
             element={<DashboardLayout />}
           />
-          <Route
-            path='/home'
-            exact
-            element={<HomePage />}
-          />
+            <Route path='/home' exact element={<HomePage />}></Route>
+
         </Routes>
       </BrowserRouter>
     </div>
