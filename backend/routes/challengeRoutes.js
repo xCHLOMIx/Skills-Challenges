@@ -1,9 +1,9 @@
 const challengeController = require('../controllers/challengeController')
 const express = require('express')
 const router = express.Router()
-const authanticate = require('../middleware/authMiddleware')
+const authenticate = require('../middleware/authMiddleware')
 
-router.get('/', authanticate.authenticate, challengeController.getChallenges)
+router.get('/', authenticate.authenticateUser, challengeController.getChallenges)
 router.post('/', challengeController.createChallenge)
 router.get('/:id', challengeController.getChallenge)
 router.put('/:id',challengeController.updateChallenge)

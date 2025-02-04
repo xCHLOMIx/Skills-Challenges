@@ -21,6 +21,8 @@ const adminSchema = new Schema({
     }
 })
 adminSchema.statics.signup = async function({ name, email, phone, password }) {
+    console.log(name,email,phone,password);
+    
     const salt = await bcrypt.genSalt()
     const hash = await bcrypt.hash(password, salt)
 
@@ -28,7 +30,7 @@ adminSchema.statics.signup = async function({ name, email, phone, password }) {
         name,
         email,
         phone,
-        password:has
+        password:hash
     })
     const participant = await user.save()
     console.log(participant);

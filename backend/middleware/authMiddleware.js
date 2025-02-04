@@ -6,7 +6,7 @@ const authenticateUser = async (req,res,next) => {
         try {
             const verification = jwt.verify(token, process.env.SECRET_KEY)
             if (verification) {
-            console.log(req.participant);
+                console.log(req.participant);
                 console.log(req.participant);
                 next()
             } else {

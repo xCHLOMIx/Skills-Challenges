@@ -23,15 +23,15 @@ const challengeSchema = new Schema({
         required: [true,'You must provide contact email ']
     },
     projectDescription: {
-        type: String,
+        type: Objext,
         required: [true,'You must provide project Description ']
     },
     projectBrief: {
-        type: String,
+        type: Object,
         required: [true,'You must provide project Brief ']
     },
     projectTasks: {
-        type: String,
+        type: Object,
         required: [true,'You must provide project Tasks ']
     },
     skills: {
