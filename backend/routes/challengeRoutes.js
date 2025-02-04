@@ -1,11 +1,31 @@
-const challengeController = require('../controllers/challengeController')
-const express = require('express')
-const router = express.Router()
-const authanticate = require('../middleware/authMiddleware')
+const challengeController = require("../controllers/challengeController");
+const express = require("express");
+const router = express.Router();
+const authanticate = require("../middleware/authMiddleware");
 
-router.get('/', authanticate.authenticate, challengeController.getChallenges)
-router.post('/', challengeController.createChallenge)
-router.get('/:id', challengeController.getChallenge)
-router.put('/:id',challengeController.updateChallenge)
-router.delete('/:id',challengeController.deleteChallenge)
-module.exports = router
+router.get(
+  "/",
+  authanticate.authenticateUser,
+  challengeController.getChallenges
+);
+router.post(
+  "/",
+  authanticate.authenticateAdmin,
+  challengeController.createChallenge
+);
+router.get(
+  "/:id",
+  authanticate.authenticateUser,
+  challengeController.getChallenge
+);
+router.put(
+  "/:id",
+  authanticate.authenticateAdmin,
+  challengeController.updateChallenge
+);
+router.delete(
+  "/:id",
+  authanticate.authenticateAdmin,
+  challengeController.deleteChallenge
+);
+module.exports = router;

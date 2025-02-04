@@ -31,7 +31,7 @@ particapantSchema.statics.signup = async function({ name, email, phone, password
         name,
         email,
         phone,
-        password:has
+        password:hash
     })
     const participant = await user.save()
     console.log(participant);
