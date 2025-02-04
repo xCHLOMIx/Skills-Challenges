@@ -32,13 +32,12 @@ adminSchema.statics.signup = async function({ name, email, phone, password }) {
         phone,
         password:hash
     })
-    const participant = await user.save()
-    console.log(participant);
-    return participant
+    const admin = await user.save()
+    console.log(admin);
+    return admin
 }
 adminSchema.statics.login = async function ({email,password}) {
     //check if email exists
-
     const email_exists = await this.findOne({email })
     if (!email_exists) {
         throw Error('Incorrect credentials')
@@ -53,5 +52,5 @@ adminSchema.statics.login = async function ({email,password}) {
     }
 }
 
-const Participant = mongoose.model('Participant', adminSchema)
-module.exports = Participant
+const Admin = mongoose.model('Admin', adminSchema)
+module.exports = Admin
