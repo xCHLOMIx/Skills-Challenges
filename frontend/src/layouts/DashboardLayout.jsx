@@ -5,6 +5,7 @@ import Dashboard from "../pages/admin/Dashboard";
 import DashboardNavbar from "../components/dashboard/DashboardNavbar";
 import Challenges from "../pages/admin/Challenges";
 import NewChallenge from "../components/dashboard/NewChallenge";
+import ChallengeDetails from "../pages/admin/ChallengeDetails";
 const DashboardLayout = () => {
     const [isOpen, setIsOpen] = useState(false)
 
@@ -31,6 +32,10 @@ const DashboardLayout = () => {
                         <Route
                             path="/challenges"
                             element={<Challenges />}
+                        />
+                        <Route
+                            path="/challenges/:id"
+                            element={<ChallengeDetails />}
                         />
                         
                         <Route path="/newChallenge" element={<NewChallenge/>}/>

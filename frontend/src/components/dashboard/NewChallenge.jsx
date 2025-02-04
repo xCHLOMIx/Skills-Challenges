@@ -60,149 +60,149 @@ const NewChallenge = () => {
   };
 
   return (
-    <div className="w-full flex justify-center">
-    <div className="rounded-md  bg-white border border-slate-light md:p-4 p-2 mb-10  ">
-      <div className="text-center my-4">
-        <h2 className="capitalize text-xl font-semibold">Create new challenge</h2>
-        <p className='text-sm text-slate-mid'>Fill out these details to build your broadcast</p>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div className="my-3">
-          <label htmlFor="title">Challenge/Hackathon Title:</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            placeholder="Enter Title"
-            className="w-full px-3 py-4 border border-[#D0D5DD] rounded-md focus:outline-none focus:border-[#FA9874]"
-            value={formData.title}
-            onChange={handleChange}
-          />
-          {errors.title && <p className="text-red-500">{errors.title}</p>}
+    <div className="w-full flex justify-center mb-4">
+      <div className="rounded-xl  bg-white border border-slate-light md:p-4 p-2 mb-10  ">
+        <div className="text-center my-4">
+          <h2 className="capitalize text-2xl font-semibold">Create new challenge</h2>
+          <p className='text-base text-slate-mid'>Fill out these details to build your broadcast</p>
         </div>
-
-        <div className="flex w-full space-x-3 my-3">
-          <div className="w-1/2">
-            <label htmlFor="duration">Duration:</label>
+        <form onSubmit={handleSubmit} >
+          <div className="my-3 mt-10">
+            <label htmlFor="title">Challenge/Hackathon Title:</label>
             <input
               type="text"
-              id="duration"
-              name="duration"
-              placeholder="Duration"
+              id="title"
+              name="title"
+              placeholder="Enter Title"
               className="w-full px-3 py-4 border border-[#D0D5DD] rounded-md focus:outline-none focus:border-[#FA9874]"
-              value={formData.duration}
+              value={formData.title}
               onChange={handleChange}
             />
-            {errors.duration && <p className="text-red-500">{errors.duration}</p>}
+            {errors.title && <p className="text-red-500">{errors.title}</p>}
           </div>
-          <div className="w-1/2">
-            <label htmlFor="deadline">Deadline:</label>
-            <input
-              type="text"
-              id="deadline"
-              name="deadline"
-              placeholder="Deadline"
-              className="w-full px-3 py-4 border border-[#D0D5DD] rounded-md focus:outline-none focus:border-[#FA9874]"
-              value={formData.deadline}
+
+          <div className="flex w-full space-x-3 my-3">
+            <div className="w-1/2">
+              <label htmlFor="duration">Duration:</label>
+              <input
+                type="text"
+                id="duration"
+                name="duration"
+                placeholder="Duration"
+                className="w-full px-3 py-4 border border-[#D0D5DD] rounded-md focus:outline-none focus:border-[#FA9874]"
+                value={formData.duration}
+                onChange={handleChange}
+              />
+              {errors.duration && <p className="text-red-500">{errors.duration}</p>}
+            </div>
+            <div className="w-1/2">
+              <label htmlFor="deadline">Deadline:</label>
+              <input
+                type="text"
+                id="deadline"
+                name="deadline"
+                placeholder="Deadline"
+                className="w-full px-3 py-4 border border-[#D0D5DD] rounded-md focus:outline-none focus:border-[#FA9874]"
+                value={formData.deadline}
+                onChange={handleChange}
+              />
+              {errors.deadline && <p className="text-red-500">{errors.deadline}</p>}
+            </div>
+          </div>
+
+          <div className="flex w-full space-x-3 my-3">
+            <div className="w-1/2">
+              <label htmlFor="moneyPrize">Money Prize:</label>
+              <input
+                type="text"
+                id="moneyPrize"
+                name="moneyPrize"
+                placeholder="Money Prize"
+                className="w-full px-3 py-4 border border-[#D0D5DD] rounded-md focus:outline-none focus:border-[#FA9874]"
+                value={formData.moneyPrize}
+                onChange={handleChange}
+              />
+              {errors.moneyPrize && <p className="text-red-500">{errors.moneyPrize}</p>}
+            </div>
+            <div className="w-1/2">
+              <label htmlFor="contactEmail">Contact Email:</label>
+              <input
+                type="text"
+                id="contactEmail"
+                name="contactEmail"
+                placeholder="Contact Email"
+                className="w-full px-3 py-4 border border-[#D0D5DD] rounded-md focus:outline-none focus:border-[#FA9874]"
+                value={formData.contactEmail}
+                onChange={handleChange}
+              />
+              {errors.contactEmail && <p className="text-red-500">{errors.contactEmail}</p>}
+            </div>
+          </div>
+
+          <div className="my-3">
+            <label htmlFor="projectDescription">Project Description:</label>
+            <textarea
+              id="projectDescription"
+              name="projectDescription"
+              rows="4"
+              placeholder="Enter Description"
+              className="resize-none w-full px-3 py-4 border border-[#D0D5DD] rounded-md focus:outline-none focus:border-[#FA9874]"
+              value={formData.projectDescription}
               onChange={handleChange}
             />
-            {errors.deadline && <p className="text-red-500">{errors.deadline}</p>}
+            {errors.projectDescription && <p className="text-red-500">{errors.projectDescription}</p>}
           </div>
-        </div>
 
-        <div className="flex w-full space-x-3 my-3">
-          <div className="w-1/2">
-            <label htmlFor="moneyPrize">Money Prize:</label>
-            <input
-              type="text"
-              id="moneyPrize"
-              name="moneyPrize"
-              placeholder="Money Prize"
-              className="w-full px-3 py-4 border border-[#D0D5DD] rounded-md focus:outline-none focus:border-[#FA9874]"
-              value={formData.moneyPrize}
+          <div className="my-3">
+            <label htmlFor="projectBrief">Project Brief:</label>
+            <textarea
+              id="projectBrief"
+              name="projectBrief"
+              rows="2"
+              placeholder="Enter Brief"
+              className="resize-none w-full px-3 py-4 border border-[#D0D5DD] rounded-md focus:outline-none focus:border-[#FA9874]"
+              value={formData.projectBrief}
               onChange={handleChange}
             />
-            {errors.moneyPrize && <p className="text-red-500">{errors.moneyPrize}</p>}
+            {errors.projectBrief && <p className="text-red-500">{errors.projectBrief}</p>}
           </div>
-          <div className="w-1/2">
-            <label htmlFor="contactEmail">Contact Email:</label>
-            <input
-              type="text"
-              id="contactEmail"
-              name="contactEmail"
-              placeholder="Contact Email"
-              className="w-full px-3 py-4 border border-[#D0D5DD] rounded-md focus:outline-none focus:border-[#FA9874]"
-              value={formData.contactEmail}
+
+          <div className="my-3">
+            <label htmlFor="projectTasks">Project Tasks:</label>
+            <textarea
+              id="projectTasks"
+              name="projectTasks"
+              rows="4"
+              placeholder="Enter Tasks"
+              className="resize-none w-full px-3 py-4 border border-[#D0D5DD] rounded-md focus:outline-none focus:border-[#FA9874]"
+              value={formData.projectTasks}
               onChange={handleChange}
             />
-            {errors.contactEmail && <p className="text-red-500">{errors.contactEmail}</p>}
+            {errors.projectTasks && <p className="text-red-500">{errors.projectTasks}</p>}
           </div>
-        </div>
 
-        <div className="my-3">
-          <label htmlFor="projectDescription">Project Description:</label>
-          <textarea
-            id="projectDescription"
-            name="projectDescription"
-            rows="4"
-            placeholder="Enter Description"
-            className="resize-none w-full px-3 py-4 border border-[#D0D5DD] rounded-md focus:outline-none focus:border-[#FA9874]"
-            value={formData.projectDescription}
-            onChange={handleChange}
-          />
-          {errors.projectDescription && <p className="text-red-500">{errors.projectDescription}</p>}
-        </div>
-
-        <div className="my-3">
-          <label htmlFor="projectBrief">Project Brief:</label>
-          <textarea
-            id="projectBrief"
-            name="projectBrief"
-            rows="2"
-            placeholder="Enter Brief"
-            className="resize-none w-full px-3 py-4 border border-[#D0D5DD] rounded-md focus:outline-none focus:border-[#FA9874]"
-            value={formData.projectBrief}
-            onChange={handleChange}
-          />
-          {errors.projectBrief && <p className="text-red-500">{errors.projectBrief}</p>}
-        </div>
-
-        <div className="my-3">
-          <label htmlFor="projectTasks">Project Tasks:</label>
-          <textarea
-            id="projectTasks"
-            name="projectTasks"
-            rows="4"
-            placeholder="Enter Tasks"
-            className="resize-none w-full px-3 py-4 border border-[#D0D5DD] rounded-md focus:outline-none focus:border-[#FA9874]"
-            value={formData.projectTasks}
-            onChange={handleChange}
-          />
-          {errors.projectTasks && <p className="text-red-500">{errors.projectTasks}</p>}
-        </div>
-
-        <div className="flex space-x-10 mb-4">
-          <SecondaryButton
-            content="Cancel"
-            styles="px-3 py-2 w-[40%] font-semibold border-primary border bg-white text-primary rounded-md"
-            onClick={(e)=>{
+          <div className="flex gap-4">
+            <SecondaryButton
+              content="Cancel"
+              styles="bg-white text-primary w-full"
+              onClick={(e) => {
                 e.preventDefault();
                 handleCancel()
-            }}
-          />
-          <SecondaryButton
-            content="Create challenge"
-            onClick={(e)=>{
+              }}
+            />
+            <SecondaryButton
+              content="Create challenge"
+              onClick={(e) => {
                 e.preventDefault()
                 handleSubmit()
-            }}
-            styles="px-3 py-2 w-[60%] capitalize font-semibold border-primary border bg-primary text-white rounded-md"
-            type="submit"
-          />
-        </div>
-      </form>
+              }}
+              styles="text-white w-full"
+              type="submit"
+            />
+          </div>
+        </form>
+      </div>
     </div>
-</div>
   );
 };
 
