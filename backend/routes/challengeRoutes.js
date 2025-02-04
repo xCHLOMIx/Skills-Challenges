@@ -13,6 +13,11 @@ router.post(
   authanticate.authenticateAdmin,
   challengeController.createChallenge
 );
+router.post(
+  "/join",
+  authanticate.authenticateUser,
+  challengeController.joinChallenge
+);
 router.get(
   "/:id",
   authanticate.authenticateUser,
@@ -28,4 +33,5 @@ router.delete(
   authanticate.authenticateAdmin,
   challengeController.deleteChallenge
 );
+
 module.exports = router;
