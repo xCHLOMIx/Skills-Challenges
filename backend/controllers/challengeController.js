@@ -1,6 +1,6 @@
 const Challenge = require('../models/Challenge')
 const Participant = require('../models/Participants')
-
+const mongoose=require('mongoose')
 const getChallenges = async (req, res) => {
     try {
         const challenges = await Challenge.find()
