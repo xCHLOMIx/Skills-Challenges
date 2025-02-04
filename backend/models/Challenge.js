@@ -23,15 +23,15 @@ const challengeSchema = new Schema({
         required: [true,'You must provide contact email ']
     },
     projectDescription: {
-        type: Objext,
+        type: String,
         required: [true,'You must provide project Description ']
     },
     projectBrief: {
-        type: Object,
+        type: String,
         required: [true,'You must provide project Brief ']
     },
     projectTasks: {
-        type: Object,
+        type: String,
         required: [true,'You must provide project Tasks ']
     },
     skills: {
@@ -40,6 +40,7 @@ const challengeSchema = new Schema({
     },
     seniorityLevel: {
         type: String,
+        default:"intermediate",
         required: [true,'You must provide seniority Level ']
     },
     status: {

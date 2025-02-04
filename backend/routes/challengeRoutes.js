@@ -10,12 +10,12 @@ router.get(
 );
 router.post(
   "/",
-  authanticate.authenticateAdmin,
+  // authanticate.authenticateAdmin,
   challengeController.createChallenge
 );
 router.get(
   "/:id",
-  authanticate.authenticateUser,
+  // authanticate.authenticateUser,
   challengeController.getChallenge
 );
 router.put(

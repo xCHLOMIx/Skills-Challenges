@@ -1,5 +1,5 @@
 const Challenge = require('../models/Challenge')
-
+const mongoose=require('mongoose')
 const getChallenges = async (req, res) => {
     try {
         const challenges = await Challenge.find()
@@ -33,7 +33,13 @@ const createChallenge = async (req, res) => {
 const getChallenge = async (req, res) => {
     const body = req.body
     const id = req.params.id
+    console.log(id)
     try {
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ 
+              message: 'Invalid challenge ID format' 
+            });
+          }
         const challenge = await Challenge.findById(id)
         res.status(201).json(challenge)
     } catch (error) {
