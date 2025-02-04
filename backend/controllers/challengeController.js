@@ -1,5 +1,6 @@
 const Challenge = require('../models/Challenge')
-const mongoose=require('mongoose')
+const Participant = require('../models/Participants')
+
 const getChallenges = async (req, res) => {
     try {
         const challenges = await Challenge.find()
@@ -78,10 +79,32 @@ const deleteChallenge = async (req,res) => {
         res.status(400).json({message: error.message})
     }
 }
+
+const joinChallenge = async (req, res)=>{
+    const {userId,challengeId} = req.body
+    try {
+        const participant = await Participant.findById(userId)
+        if (participant) {
+            const challenge = await Challenge.findById(challengeId)
+            if (challenge) {
+                participant.challengeId = challengeId
+                const participant = await participant.save()
+                
+                res.json(participant)
+            }
+            throw Error("invalid challenge id");
+        }
+        throw Error("invalid user id");
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({message:error.message})
+    }
+}
 module.exports = {
     getChallenges,
     createChallenge,
     getChallenge,
     updateChallenge,
+    joinChallenge,
     deleteChallenge
 }

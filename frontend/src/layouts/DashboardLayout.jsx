@@ -33,6 +33,10 @@ const DashboardLayout = () => {
                             path="/challenges"
                             element={<Challenges />}
                         />
+                        <Route
+                            path="/challenges/:id"
+                            element={<ChallengeDetails />}
+                        />
                         
                         <Route path="/newChallenge" element={<NewChallenge/>}/>
                         <Route path="/Challenge/:id" element={<ChallengeDetails/>}/>
