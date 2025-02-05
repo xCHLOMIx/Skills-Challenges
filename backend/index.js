@@ -25,4 +25,7 @@ app.use(cookieParser())
 app.use(express.json())
 app.use('/challenges', challengeRoutes)
 app.use('/auth',authRoutes)
-app.use('/work',workRoutes)
+app.use('/work', workRoutes)
+
+
+
