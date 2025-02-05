@@ -14,7 +14,7 @@ const signup =async  (req, res) => {
 const login = async (req, res) => {
     try {
         const user = await Participant.login(req.body)
-        const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY)
+        const token = jwt.sign({ id: user._id,name:user.name,phone:user.phone,email:user.email,title:user.title }, process.env.SECRET_KEY)
         res.cookie('jwt', token, {
             httpOnly: true,
             secure: true,
@@ -43,7 +43,15 @@ const signupAdmin = async (req, res) => {
 const loginAdmin = async (req, res) => {
   try {
     const user = await Admin.login(req.body);
-    const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
+    const token = jwt.sign(
+      {
+        id: user._id,
+        name: user.name,
+        phone: user.phone,
+        email: user.email,
+      },
+      process.env.SECRET_KEY
+    );
     res.cookie("jwtAdmin", token, {
       httpOnly: true,
       secure: true,
