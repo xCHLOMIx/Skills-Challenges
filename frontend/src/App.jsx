@@ -1,10 +1,11 @@
-import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import DashboardLayout from './layouts/DashboardLayout'
 import HomePage from './pages/users/HomePage'
-import AuthLayout from './layouts/AuthLayout'
-import LoginAuth from './layouts/LoginAuth'
+import AdminDashboardLayout from './layouts/admin/AdminDashboardLayout'
+import UserDashboardLayout from './layouts/users/UserDashboardLayout'
+import AdminSignup from './pages/admin/AdminSignup'
+import AdminSignin from './pages/admin/AdminSignin'
+
 function App() {
   return (
     <div className="font-work">
@@ -12,11 +13,15 @@ function App() {
         <Routes>
           <Route
             path='/admin/*'
-            element={<DashboardLayout />}
+            element={<AdminDashboardLayout />}
           />
-            <Route path='/home' exact element={<HomePage />}></Route>
-          <Route path="/signup" element={<AuthLayout></AuthLayout>}/>
-          <Route path="/signin" element={<LoginAuth></LoginAuth>}/>
+          <Route
+            path='/user/*'
+            element={<UserDashboardLayout />}
+          />
+          <Route path='/home' exact element={<HomePage />}></Route>
+          <Route path="/admin/signup" element={<AdminSignup />} />
+          <Route path="/admin/signin" element={<AdminSignin />} />
         </Routes>
       </BrowserRouter>
     </div>

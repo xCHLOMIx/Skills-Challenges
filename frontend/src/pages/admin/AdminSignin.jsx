@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const LoginForm = () => {
+const AdminSignin = () => {
     const [loginData, setLoginData] = useState({
         email: "",
         password: "",
@@ -70,4 +70,4 @@ const LoginForm = () => {
     );
 };
 
-export default LoginForm;
+export default AdminSignin;
