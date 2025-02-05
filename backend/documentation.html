@@ -219,7 +219,30 @@
     "challengeId": "string"
 }</pre>
     </div>
-
+    <h2>Work Endpoints</h2>
+    
+    <div class="endpoint">
+        <span class="method get">GET</span>
+        <code>/work</code>
+        <p>Get all works</p>
+    </div>
+    
+    <div class="endpoint">
+        <span class="method get">GET</span>
+        <code>/work/:id</code>
+        <p>Get a specific work submission</p>
+    </div>
+    
+    <div class="endpoint">
+        <span class="method post">POST</span>
+        <code>/work</code>
+        <p>Submit work for a challenge</p>
+        <pre>
+    {
+        "repositoryUrl": "string",
+        "challengeId": "string",
+        "participantId": "string"
+    }</pre>
     <h2>Models</h2>
 
     <h3>Challenge Model</h3>
@@ -257,6 +280,13 @@
     phone: Number,
     password: String
 }</pre>
+    <h3>Work Model</h3>
+    <pre>
+    {
+        repositoryUrl: String,
+        challengeId: ObjectId,
+        participantId: ObjectId
+    }</pre>
 
 </body>
 </html>

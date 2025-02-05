@@ -34,7 +34,6 @@ const createChallenge = async (req, res) => {
 const getChallenge = async (req, res) => {
     const body = req.body
     const id = req.params.id
-    console.log(id)
     try {
         if (!mongoose.Types.ObjectId.isValid(id)) {
             return res.status(400).json({ 
