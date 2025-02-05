@@ -24,7 +24,7 @@ const AdminForm = () => {
         setSignupError("");
         setSignupMessage("");
         try {
-            const response = await axios.post("http://127.0.0.1:1234/auth/signup", formData);
+            const response = await axios.post("http://127.0.0.1:1234/auth/signupAdmin", formData);
             setSignupMessage("Signup successful! Please log in.");
             console.log("Signup Successful", response.data);
         } catch (err) {

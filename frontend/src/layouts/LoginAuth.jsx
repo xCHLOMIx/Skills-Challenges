@@ -22,7 +22,7 @@ const LoginForm = () => {
         setLoginError("");
         setLoginMessage("");
         try {
-            const response = await axios.post("http://localhost:1234/auth/login", loginData);
+            const response = await axios.post("http://localhost:1234/auth/loginAdmin", loginData);
             setLoginMessage("Login successful!");
             console.log("Login Successful", response.data);
         } catch (err) {
