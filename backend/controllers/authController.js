@@ -20,7 +20,7 @@ const login = async (req, res) => {
             secure: true,
             maxAge: 1000*3600*72
         })
-        res.json({message:'your logged in'})
+        res.json({message:'your logged in',token:token})
     } catch (error) {
         console.log(error);
         res.status(400).json({'error':error.message})

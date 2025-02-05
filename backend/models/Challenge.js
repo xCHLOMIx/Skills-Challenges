@@ -40,6 +40,7 @@ const challengeSchema = new Schema({
     },
     seniorityLevel: {
         type: String,
+        default:"intermediate",
         required: [true,'You must provide seniority Level ']
     },
     status: {
