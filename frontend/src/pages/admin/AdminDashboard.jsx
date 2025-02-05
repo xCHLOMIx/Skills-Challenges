@@ -3,7 +3,7 @@ import { IoIosArrowRoundUp } from "react-icons/io";
 import { RxCaretRight } from "react-icons/rx";
 import Card from "../../components/Users/Card";
 
-const Dashboard = () => {
+const AdminDashboard = () => {
     return (
         <div className="flex flex-col gap-10">
             <div className="flex flex-col">
@@ -130,4 +130,4 @@ const Dashboard = () => {
     );
 }
 
-export default Dashboard;
+export default AdminDashboard;

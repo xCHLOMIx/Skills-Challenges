@@ -1,8 +1,8 @@
-import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import DashboardLayout from './layouts/DashboardLayout'
 import HomePage from './pages/users/HomePage'
+import AdminDashboardLayout from './layouts/admin/AdminDashboardLayout'
+import UserDashboardLayout from './layouts/users/UserDashboardLayout'
 
 function App() {
   return (
@@ -11,7 +11,11 @@ function App() {
         <Routes>
           <Route
             path='/admin/*'
-            element={<DashboardLayout />}
+            element={<AdminDashboardLayout />}
+          />
+          <Route
+            path='/user/*'
+            element={<UserDashboardLayout />}
           />
             <Route path='/home' exact element={<HomePage />}></Route>
 

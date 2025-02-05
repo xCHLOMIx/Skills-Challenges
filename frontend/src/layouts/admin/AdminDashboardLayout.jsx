@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import Sidebar from "../components/dashboard/Sidebar";
+import Sidebar from "../../components/dashboard/Sidebar";
 import { Route, Routes } from "react-router-dom";
-import Dashboard from "../pages/admin/Dashboard";
-import DashboardNavbar from "../components/dashboard/DashboardNavbar";
-import Challenges from "../pages/admin/Challenges";
-import NewChallenge from "../components/dashboard/NewChallenge";
-import ChallengeDetails from "../pages/admin/ChallengeDetails";
-const DashboardLayout = () => {
+import Dashboard from "../../pages/admin/AdminDashboard";
+import DashboardNavbar from "../../components/dashboard/DashboardNavbar";
+import Challenges from "../../pages/admin/AdminChallenges";
+import NewChallenge from "../../components/dashboard/NewChallenge";
+import ChallengeDetails from "../../pages/admin/AdminChallengeDetails";
+const AdminDashboardLayout = () => {
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleSideBar = (e) => {
@@ -37,9 +37,9 @@ const DashboardLayout = () => {
                             path="/challenges/:id"
                             element={<ChallengeDetails />}
                         />
-                        
-                        <Route path="/newChallenge" element={<NewChallenge/>}/>
-                        
+
+                        <Route path="/newChallenge" element={<NewChallenge />} />
+
                     </Routes>
                 </div>
             </div>
@@ -47,4 +47,4 @@ const DashboardLayout = () => {
     );
 }
 
-export default DashboardLayout;
+export default AdminDashboardLayout;
