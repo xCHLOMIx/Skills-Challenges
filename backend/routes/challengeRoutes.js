@@ -10,12 +10,17 @@ router.get(
 );
 router.post(
   "/",
-  authanticate.authenticateAdmin,
+  // authanticate.authenticateAdmin,
   challengeController.createChallenge
+);
+router.post(
+  "/join",
+  authanticate.authenticateUser,
+  challengeController.joinChallenge
 );
 router.get(
   "/:id",
-  authanticate.authenticateUser,
+  // authanticate.authenticateUser,
   challengeController.getChallenge
 );
 router.put(
@@ -28,4 +33,5 @@ router.delete(
   authanticate.authenticateAdmin,
   challengeController.deleteChallenge
 );
+
 module.exports = router;
