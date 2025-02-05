@@ -73,27 +73,36 @@ const deleteChallenge = async (req,res) => {
         res.status(400).json({message: error.message})
     }
 }
-
-const joinChallenge = async (req, res)=>{
-    const {userId,challengeId} = req.body
+const joinChallenge = async (req, res) => {
+    const {userId, challengeId} = req.body
     try {
         const participant = await Participant.findById(userId)
-        if (participant) {
-            const challenge = await Challenge.findById(challengeId)
-            if (challenge) {
-                participant.challengeId = challengeId
-                const participant = await participant.save()
-                
-                res.json(participant)
-            }
-            throw Error("invalid challenge id");
+        if (!participant) {
+            throw Error("Invalid user id")
         }
-        throw Error("invalid user id");
+
+        const challenge = await Challenge.findById(challengeId)
+        if (!challenge) {
+            throw Error("Invalid challenge id")
+        }
+
+        participant.challengeId = challengeId
+        const updatedParticipant = await participant.save()
+                
+        res.status(200).json({
+            message: 'Successfully joined challenge',
+            state: true,
+            data: updatedParticipant
+        })
+
     } catch (error) {
-        console.log(error);
-        res.status(400).json({message:error.message})
+        res.status(400).json({
+            message: error.message,
+            state: false
+        })
     }
 }
+
 module.exports = {
     getChallenges,
     createChallenge,
