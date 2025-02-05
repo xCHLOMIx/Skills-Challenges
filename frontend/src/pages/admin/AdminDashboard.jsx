@@ -2,8 +2,9 @@ import { CgFileDocument } from "react-icons/cg";
 import { IoIosArrowRoundUp } from "react-icons/io";
 import { RxCaretRight } from "react-icons/rx";
 import Card from "../../components/Users/Card";
+import { Link } from "react-router-dom";
 
-const Dashboard = () => {
+const AdminDashboard = () => {
     return (
         <div className="flex flex-col gap-10">
             <div className="flex flex-col">
@@ -115,10 +116,12 @@ const Dashboard = () => {
             <div>
                 <div className="flex justify-between">
                     <span className="text-lg font-medium">Recent Challenges</span>
-                    <div className="flex items-center">
-                        <span className="text-primary text-sm font-semibold">See all</span>
-                        <RxCaretRight className="text-primary" size={"24px"} />
-                    </div>
+                    <Link to="/admin/challenges">
+                        <div className="flex items-center">
+                            <span className="text-primary text-sm font-semibold">See all</span>
+                            <RxCaretRight className="text-primary" size={"24px"} />
+                        </div>
+                    </Link>
                 </div>
                 <div className="grid grid-cols-3 max-md:grid-cols-1 max-lg:grid-cols-2 mb-8 gap-5 py-5">
                     <Card />
@@ -130,4 +133,4 @@ const Dashboard = () => {
     );
 }
 
-export default Dashboard;
+export default AdminDashboard;
