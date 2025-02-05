@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,35 +12,77 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            color: #333;
+            color: #e4e4e4;
+            background-color: #1e1e1e;
         }
+
         .endpoint {
             margin: 20px 0;
             padding: 20px;
-            border: 1px solid #ddd;
+            border: 1px solid #333;
             border-radius: 5px;
+            background-color: #2d2d2d;
         }
+
         .method {
             display: inline-block;
             padding: 5px 10px;
             border-radius: 3px;
             font-weight: bold;
         }
-        .get { background-color: #61affe; color: white; }
-        .post { background-color: #49cc90; color: white; }
-        .put { background-color: #fca130; color: white; }
-        .delete { background-color: #f93e3e; color: white; }
+
+        .get {
+            background-color: #2673bd;
+            color: white;
+        }
+
+        .post {
+            background-color: #28815a;
+            color: white;
+        }
+
+        .put {
+            background-color: #b36b00;
+            color: white;
+        }
+
+        .delete {
+            background-color: #bc2626;
+            color: white;
+        }
+
         code {
-            background-color: #f5f5f5;
+            background-color: #3d3d3d;
             padding: 2px 5px;
             border-radius: 3px;
             font-family: monospace;
+            color: #d4d4d4;
         }
+
         pre {
-            background-color: #f5f5f5;
+            background-color: #3d3d3d;
             padding: 15px;
             border-radius: 5px;
             overflow-x: auto;
+            color: #d4d4d4;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #ffffff;
+        }
+
+        p {
+            color: #d4d4d4;
+        }
+
+        a {
+            color: #4da3ff;
+        }
+
+        a:hover {
+            color: #80bdff;
         }
     </style>
 </head>
@@ -176,7 +219,30 @@
     "challengeId": "string"
 }</pre>
     </div>
-
+    <h2>Work Endpoints</h2>
+    
+    <div class="endpoint">
+        <span class="method get">GET</span>
+        <code>/work</code>
+        <p>Get all works</p>
+    </div>
+    
+    <div class="endpoint">
+        <span class="method get">GET</span>
+        <code>/work/:id</code>
+        <p>Get a specific work submission</p>
+    </div>
+    
+    <div class="endpoint">
+        <span class="method post">POST</span>
+        <code>/work</code>
+        <p>Submit work for a challenge</p>
+        <pre>
+    {
+        "repositoryUrl": "string",
+        "challengeId": "string",
+        "participantId": "string"
+    }</pre>
     <h2>Models</h2>
 
     <h3>Challenge Model</h3>
@@ -214,6 +280,13 @@
     phone: Number,
     password: String
 }</pre>
+    <h3>Work Model</h3>
+    <pre>
+    {
+        repositoryUrl: String,
+        challengeId: ObjectId,
+        participantId: ObjectId
+    }</pre>
 
 </body>
 </html>

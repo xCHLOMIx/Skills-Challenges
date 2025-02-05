@@ -6,6 +6,7 @@ const authRoutes = require('./routes/AuthRoutes')
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser")
 const cors=require('cors')
+const workRoutes = require('./routes/workRoutes')
 dotenv.config();
 
 
@@ -24,3 +25,4 @@ app.use(cookieParser())
 app.use(express.json())
 app.use('/challenges', challengeRoutes)
 app.use('/auth',authRoutes)
+app.use('/work',workRoutes)
