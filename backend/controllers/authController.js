@@ -55,11 +55,45 @@ const signupAdmin = async (req, res) => {
 };
 
 const profile = async (req, res) => {
-  if (!req.admin) {
-    res.status(403).json({ message: "Your unauthorized" });
+  try {
+    const participantToken = req.cookies.jwt;
+    const adminToken = req.cookies.jwtAdmin;
+
+    if (!participantToken && !adminToken) {
+      return res.status(403).json({ message: "No authentication token found" });
+    }
+
+    let user;
+    let userType;
+
+    if (adminToken) {
+      const adminData = jwt.verify(adminToken, process.env.SECRET_KEY);
+      user = await Admin.findById(adminData.id).select('-password');
+      userType = 'admin';
+    } else {
+      const participantData = jwt.verify(participantToken, process.env.SECRET_KEY);
+      user = await Participant.findById(participantData.id).select('-password');
+      userType = 'participant';
+    }
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({
+      userType,
+      profile: user
+    });
+
+  } catch (error) {
+    console.error('Profile error:', error);
+    res.status(401).json({ 
+      message: "Authentication failed",
+      error: error.message 
+    });
   }
-  res.json(req.admin);
 };
+
 
 const loginAdmin = async (req, res) => {
   try {
@@ -78,6 +112,11 @@ const loginAdmin = async (req, res) => {
       secure: true,
       maxAge: 1000 * 3600 * 72,
     });
+    res.cookie("jwt", token, {
+      httpOnly: true,
+      secure: true,
+      maxAge: 1000 * 3600 * 72,
+    });
     res.json({ message: "your logged in as an admin" });
   } catch (error) {
     console.log(error);
@@ -85,6 +124,9 @@ const loginAdmin = async (req, res) => {
   }
 };
 
+const logout = (req,res) => {
+  
+}
 module.exports = {
   signup,
   login,
