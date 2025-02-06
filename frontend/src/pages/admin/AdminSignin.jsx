@@ -1,7 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
-
+import { useAuth } from "../../utils/AuthContext";
+import { useNavigate } from "react-router-dom";
 const AdminSignin = () => {
+    const navigate = useNavigate();
+    const { login } = useAuth();
     const [loginData, setLoginData] = useState({
         email: "",
         password: "",
@@ -24,6 +27,9 @@ const AdminSignin = () => {
         try {
             const response = await axios.post("http://localhost:1234/auth/loginAdmin", loginData);
             setLoginMessage("Login successful!");
+            login();
+            //redirect to admin dashboard
+            // navigate('/admin/dashboard');
             console.log("Login Successful", response.data);
         } catch (err) {
             setLoginError("Login failed. Please check your credentials.");
