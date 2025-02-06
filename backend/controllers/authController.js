@@ -124,12 +124,34 @@ const loginAdmin = async (req, res) => {
   }
 };
 
-const logout = (req,res) => {
-  
-}
+const logout = (req, res) => {
+  try {
+    // Clear both cookies
+    res.cookie("jwt", "", {
+      maxAge: 1,
+      httpOnly: true,
+      secure: true,
+    });
+    res.cookie("jwtAdmin", "", {
+      maxAge: 1,
+      httpOnly: true,
+      secure: true,
+    });
+
+    res.status(200).json({
+      message: "Logged out successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Error logging out",
+      error: error.message,
+    });
+  }
+};
 module.exports = {
   signup,
   login,
+  logout,
   signupAdmin,
   profile,
   loginAdmin,
