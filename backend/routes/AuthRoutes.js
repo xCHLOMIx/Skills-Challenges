@@ -7,5 +7,4 @@ router.post('/login', login)
 router.get('/profile',profile)
 router.post('/signupAdmin', signupAdmin)
 router.post('/loginAdmin', loginAdmin)
-router.get('/profileAdmin',authenticateAdmin,profileAdmin)
 module.exports = router
