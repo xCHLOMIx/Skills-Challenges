@@ -5,7 +5,7 @@ const authanticate = require("../middleware/authMiddleware");
 
 router.get(
   "/",
-  authanticate.authenticateUser,
+  authanticate.authenticateUser || authanticate.authenticateAdmin,
   challengeController.getChallenges
 );
 router.post(
@@ -25,7 +25,7 @@ router.get(
 );
 router.put(
   "/:id",
-  authanticate.authenticateAdmin,
+  authanticate.authenticateAdmin ,
   challengeController.updateChallenge
 );
 router.delete(
