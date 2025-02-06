@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const Participant = require("../models/Participants");
+const Admin=require("../models/Admin");
 const authenticateUser = async (req, res, next) => {
   const token = req.cookies.jwt;
   if (token) {
@@ -28,7 +29,7 @@ const authenticateAdmin = async (req, res, next) => {
     try {
       const verification = jwt.verify(token, process.env.SECRET_KEY);
       if (verification) {
-        req.participant = await Participant.findById(verification.id);
+        req.Admin = await Admin.findById(verification.id);
         console.log(req.Admin);
         next();
       } else {

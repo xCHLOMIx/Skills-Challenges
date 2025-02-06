@@ -1,32 +1,40 @@
-const Admin = require('../models/Admin');
-const Participant = require('../models/Participants')
-const jwt = require('jsonwebtoken')
+const Admin = require("../models/Admin");
+const Participant = require("../models/Participants");
+const jwt = require("jsonwebtoken");
 
-const signup =async  (req, res) => {
-    try {
-        const user = await Participant.signup(req.body)
-        res.json({user})
-    } catch (error) {
-        console.log(error);
-        res.status(400).json({'error':error.message})
-    }
+const signup = async (req, res) => {
+  try {
+    const user = await Participant.signup(req.body);
+    res.json({ user });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ error: error.message });
+  }
 };
 const login = async (req, res) => {
-    try {
-        const user = await Participant.login(req.body)
-        const token = jwt.sign({ id: user._id,name:user.name,phone:user.phone,email:user.email,title:user.title }, process.env.SECRET_KEY)
-        res.cookie('jwt', token, {
-            httpOnly: true,
-            secure: true,
-            maxAge: 1000*3600*72
-        })
-        res.json({message:'your logged in',token:token})
-    } catch (error) {
-        console.log(error);
-        res.status(400).json({'error':error.message})
-    }
-}
-
+  try {
+    const user = await Participant.login(req.body);
+    const token = jwt.sign(
+      {
+        id: user._id,
+        name: user.name,
+        phone: user.phone,
+        email: user.email,
+        title: user.title,
+      },
+      process.env.SECRET_KEY
+    );
+    res.cookie("jwt", token, {
+      httpOnly: true,
+      secure: true, 
+      maxAge: 1000 * 3600 * 72,
+    });
+    res.json({ message: "your logged in" });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ error: error.message });
+  }
+};
 
 //info: admins auth
 
@@ -57,16 +65,20 @@ const loginAdmin = async (req, res) => {
       secure: true,
       maxAge: 1000 * 3600 * 72,
     });
-    res.json({ message: "your logged in as an admin" });
+    res.json({ message: "your logged in as an admin"});
   } catch (error) {
     console.log(error);
     res.status(400).json({ error: error.message });
   }
 };
+const profileAdmin = async (req, res) => {
+  res.json({ message: 'profile data', user: req.user });
+}
 
 module.exports = {
-    signup,
-    login,
-    signupAdmin,
-    loginAdmin
-}
+  signup,
+  login,
+  signupAdmin,
+  loginAdmin,
+  profileAdmin,
+};
