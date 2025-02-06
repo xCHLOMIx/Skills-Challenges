@@ -1,10 +1,16 @@
 const Admin = require("../models/Admin");
 const Participant = require("../models/Participants");
 const jwt = require("jsonwebtoken");
+const { validateSignup } = require("../validation/validator");
 
 const signup = async (req, res) => {
+  const { error, value } = validateSignup(req.body);
+  if (error) {
+    console.log(error);
+    res.status(400).json(error);
+  }
   try {
-    const user = await Participant.signup(req.body);
+    const user = await Participant.signup(value);
     res.json({ user });
   } catch (error) {
     console.log(error);
@@ -26,10 +32,10 @@ const login = async (req, res) => {
     );
     res.cookie("jwt", token, {
       httpOnly: true,
-      secure: true, 
+      secure: true,
       maxAge: 1000 * 3600 * 72,
     });
-    res.json({ message: "your logged in" });
+    res.json({ message: "your logged in", token: token });
   } catch (error) {
     console.log(error);
     res.status(400).json({ error: error.message });
@@ -48,6 +54,47 @@ const signupAdmin = async (req, res) => {
   }
 };
 
+const profile = async (req, res) => {
+  try {
+    const participantToken = req.cookies.jwt;
+    const adminToken = req.cookies.jwtAdmin;
+
+    if (!participantToken && !adminToken) {
+      return res.status(403).json({ message: "No authentication token found" });
+    }
+
+    let user;
+    let userType;
+
+    if (adminToken) {
+      const adminData = jwt.verify(adminToken, process.env.SECRET_KEY);
+      user = await Admin.findById(adminData.id).select('-password');
+      userType = 'admin';
+    } else {
+      const participantData = jwt.verify(participantToken, process.env.SECRET_KEY);
+      user = await Participant.findById(participantData.id).select('-password');
+      userType = 'participant';
+    }
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({
+      userType,
+      profile: user
+    });
+
+  } catch (error) {
+    console.error('Profile error:', error);
+    res.status(401).json({ 
+      message: "Authentication failed",
+      error: error.message 
+    });
+  }
+};
+
+
 const loginAdmin = async (req, res) => {
   try {
     const user = await Admin.login(req.body);
@@ -65,20 +112,25 @@ const loginAdmin = async (req, res) => {
       secure: true,
       maxAge: 1000 * 3600 * 72,
     });
-    res.json({ message: "your logged in as an admin"});
+    res.cookie("jwt", token, {
+      httpOnly: true,
+      secure: true,
+      maxAge: 1000 * 3600 * 72,
+    });
+    res.json({ message: "your logged in as an admin" });
   } catch (error) {
     console.log(error);
     res.status(400).json({ error: error.message });
   }
 };
-const profileAdmin = async (req, res) => {
-  res.json({ message: 'profile data', user: req.user });
-}
 
+const logout = (req,res) => {
+  
+}
 module.exports = {
   signup,
   login,
   signupAdmin,
+  profile,
   loginAdmin,
-  profileAdmin,
 };
