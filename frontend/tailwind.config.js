@@ -12,8 +12,11 @@ export default {
       colors : {
         primary : '#2B71F0',
         secondary: '#03192E',
+        "dark-blue" : '#041738',
         offwhite : '#F9FAFB',
         open:"#0F973D",
+        "gray-blue" : "#687588",
+        "black-blue" : "#2B3338",
         "light-blue" : "#D0E0FC",
         "white-blue" : "#E7F6EC",
         offwhite : "#F9FAFB",
