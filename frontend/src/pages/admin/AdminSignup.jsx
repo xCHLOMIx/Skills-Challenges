@@ -8,6 +8,7 @@ const AdminSignup = () => {
         phone: "",
         password: ""
     });
+    
     const [signupError, setSignupError] = useState("");
     const [signupMessage, setSignupMessage] = useState("");
 

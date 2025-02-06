@@ -19,7 +19,7 @@ function App() {
             path='/user/*'
             element={<UserDashboardLayout />}
           />
-          <Route path='/home' exact element={<HomePage />}></Route>
+          <Route path='/' exact element={<HomePage />}></Route>
           <Route path="/admin/signup" element={<AdminSignup />} />
           <Route path="/admin/signin" element={<AdminSignin />} />
         </Routes>
