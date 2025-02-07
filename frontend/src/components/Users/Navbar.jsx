@@ -29,7 +29,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="flex items-center">
-                    <SecondaryButton styles="bg-[#041738] text-white font-semibold text-sm px-5 py-3 border-none" content="Join the Program" />
+                    <SecondaryButton styles="bg-dark-blue text-white font-semibold text-sm px-5 py-3 border-none" content="Join the Program" />
                 </div>
             </nav>
 

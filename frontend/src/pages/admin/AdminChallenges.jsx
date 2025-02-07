@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Card from "../../components/Users/Card";
-import PrimaryButton from "../../components/Users/PrimaryButton";
+import Card from "../../components/users/Card";
+import PrimaryButton from "../../components/users/PrimaryButton";
 import { IoAdd } from "react-icons/io5";
 
 const AdminChallenges = () => {
