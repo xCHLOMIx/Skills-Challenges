@@ -1,7 +1,6 @@
 import React from 'react'
 import logoOne from '../../assets/img/logoOne.png'
 import PrimaryButton from './PrimaryButton'
-import { IoEyeOutline } from "react-icons/io5";
 
 const Card = () => {
     return (
