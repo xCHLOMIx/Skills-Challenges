@@ -20,7 +20,12 @@ mongoose.connect("mongodb://127.0.0.1:27017/skillsChallenges").then(() => {
 .catch((err) => {
     console.error('Error connecting to MongoDB:', err);
 })
-app.use(cors())
+app.use(
+    cors({
+        origin: 'http://localhost:3000',  // Replace with the URL of your frontend app
+        credentials: true, 
+    })
+);
 app.use(cookieParser())
 app.use(express.json())
 app.use('/challenges', challengeRoutes)

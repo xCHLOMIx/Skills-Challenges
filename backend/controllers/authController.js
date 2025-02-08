@@ -94,35 +94,34 @@ const profile = async (req, res) => {
   }
 };
 
-
 const loginAdmin = async (req, res) => {
   try {
-    const user = await Admin.login(req.body);
-    const token = jwt.sign(
-      {
-        id: user._id,
-        name: user.name,
-        phone: user.phone,
-        email: user.email,
-      },
-      process.env.SECRET_KEY
-    );
-    res.cookie("jwtAdmin", token, {
-      httpOnly: true,
-      secure: true,
-      maxAge: 1000 * 3600 * 72,
-    });
-    res.cookie("jwt", token, {
-      httpOnly: true,
-      secure: true,
-      maxAge: 1000 * 3600 * 72,
-    });
-    res.json({ message: "your logged in as an admin" });
+      const user = await Admin.login(req.body);
+      const token = jwt.sign(
+          {
+              id: user._id,
+              name: user.name,
+              phone: user.phone,
+              email: user.email,
+          },
+          process.env.SECRET_KEY,
+          { expiresIn: "3d" } // Set token expiration
+      );
+
+      res.cookie("jwtAdmin", token, {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === "production", // Enable secure cookies in production
+          sameSite: "Lax", // Prevent CSRF issues
+          maxAge: 1000 * 3600 * 72, // 3 days
+      });
+
+      res.status(200).json({ message: "You're logged in as an admin" });
   } catch (error) {
-    console.log(error);
-    res.status(400).json({ error: error.message });
+      console.log(error);
+      res.status(400).json({ error: error.message });
   }
 };
+
 
 const logout = (req, res) => {
   try {
