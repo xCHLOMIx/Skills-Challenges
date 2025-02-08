@@ -24,18 +24,24 @@ const AdminSignin = () => {
         e.preventDefault();
         setLoginError("");
         setLoginMessage("");
+    
         try {
-            const response = await axios.post("http://localhost:1234/auth/loginAdmin", loginData);
+            const response = await axios.post(
+                "http://localhost:1234/auth/loginAdmin",
+                loginData,
+                { withCredentials: true } // Important for cookies
+            );
+    
             setLoginMessage("Login successful!");
-            login();
-            //redirect to admin dashboard
-            // navigate('/admin/dashboard');
+            login(); // Update auth state
+            navigate("/admin/dashboard");
             console.log("Login Successful", response.data);
         } catch (err) {
             setLoginError("Login failed. Please check your credentials.");
             console.error("Login Error", err);
         }
     };
+    
 
     return (
         <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">

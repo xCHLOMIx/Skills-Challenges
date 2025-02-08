@@ -11,7 +11,7 @@ const AdminDashboard = () => {
     return (
         <div className="flex flex-col gap-10">
             <div className="flex flex-col">
-                <h1 className="text-2xl font-semibold">Welcome back,</h1>
+                <h1 className="text-2xl font-semibold">Welcome back</h1>
                 <p className="font-normal text-slate-dark">Build Work Experience through Skills Challenges</p>
             </div>
             <div className="grid grid-cols-6 gap-4 max-lg:grid-cols-1">
