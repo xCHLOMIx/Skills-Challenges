@@ -6,8 +6,11 @@ import DashboardNavbar from "../../components/dashboard/DashboardNavbar";
 import Challenges from "../../pages/admin/AdminChallenges";
 import NewChallenge from "../../components/dashboard/NewChallenge";
 import ChallengeDetails from "../../pages/admin/AdminChallengeDetails";
+import { useAuth } from "../../utils/AuthContext";
+import NotFound from "../NotFound";
 const AdminDashboardLayout = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const { userData, isLoading } = useAuth();
 
     const toggleSideBar = (e) => {
         setIsOpen(true)
@@ -18,6 +21,9 @@ const AdminDashboardLayout = () => {
             setIsOpen(false)
         })
     })
+    if(isLoading){
+        return <p>loading...</p>
+    }
     return (
         <div className="flex relative h-lvh bg-offwhite overflow-hidden">
             <Sidebar isOpen={isOpen} />
@@ -39,6 +45,7 @@ const AdminDashboardLayout = () => {
                         />
 
                         <Route path="/newChallenge" element={<NewChallenge />} />
+                        <Route path="*" element={<NotFound />} />
 
                     </Routes>
                 </div>

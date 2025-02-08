@@ -5,6 +5,7 @@ import DashboardNavbar from "../../components/dashboard/DashboardNavbar";
 import UserChallengeDetails from "../../pages/users/UserChallengeDetails";
 import UserChallenges from "../../pages/users/UserChallenges";
 import UserDashboard from "../../pages/users/UserDashboard";
+import NotFound from "../NotFound";
 
 const UserDashboardLayout = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -37,6 +38,8 @@ const UserDashboardLayout = () => {
                             path="/challenges/:id"
                             element={<UserChallengeDetails />}
                         />
+                        <Route path="*" element={<NotFound />} />
+
                     </Routes>
                 </div>
             </div>
