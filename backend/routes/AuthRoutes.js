@@ -8,5 +8,5 @@ router.post('/login', login)
 router.get('/profile',authenticateAdmin,profile)
 router.post('/signupAdmin',signupAdmin)
 router.post('/loginAdmin', loginAdmin)
-router.get('/logout',logout)
+router.post('/logout',logout)
 module.exports = router
