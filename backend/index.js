@@ -29,6 +29,7 @@ app.use(
 app.use(cookieParser())
 app.use(express.json())
 app.use('/challenges', challengeRoutes)
+// https://localhost:1234/challenges
 app.use('/auth',authRoutes)
 app.use('/work', workRoutes)
 

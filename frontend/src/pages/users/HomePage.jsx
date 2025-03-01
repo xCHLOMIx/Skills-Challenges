@@ -5,19 +5,22 @@ import { IoBriefcaseOutline } from "react-icons/io5";
 import Card from "../../components/users/Card";
 import soko from "../../assets/img/sf.png";
 import mockup from "../../assets/img/mockup.svg";
+import mockupOne from "../../assets/img/frame01.svg"
+import mockupTwo from "../../assets/img/frame02.svg"
 import { FaArrowRightLong } from "react-icons/fa6";
-
+import image from "../../assets/img/image.png"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import '../../styles.css';
+import Footer from "../../components/Users/Footer";
 
 const HomePage = () => {
   return (
-    <div className="">
+    <div className="p-0 m-0">
       <Navbar />
-      <div className="px-24 py-14 pb-16 flex justify-between items-center">
+      <div className="px-24 flex justify-between items-center">
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-5">
             <h1 className="text-[44px] leading-none w-[570px] font-bold text-primary">
@@ -267,7 +270,7 @@ const HomePage = () => {
         </div>
         <button className="border-[1px] text-primary border-primary w-max flex gap-2 items-center rounded-lg text-sm font-semibold px-14 py-4">View more</button>
       </div>
-      <div className="px-44 py-14 flex flex-col items-center bg-offwhite gap-16">
+      <div className="px-44 py-14 flex flex-col items-center gap-16">
         <div className="flex flex-col gap-3 items-center">
           <h1 className="text-4xl w-[695px] text-center text-secondary font-bold">
             What else can I gain from participating in Skills Challenges ?
@@ -316,6 +319,122 @@ const HomePage = () => {
             </div>
           </div>
           <img src={banner} alt="" />
+        </div>
+      </div>
+      {/* <div className="px-44 py-14 flex flex-col bg-white gap-16">
+        <div className="flex flex-col gap-3">
+          <h1 className="text-4xl w-[695px] text-secondary font-bold">
+            Users are in Love with Skills Challenges Program
+          </h1>
+          <p className="text-lg w-[652px] text-gray-blue">
+            See what our clients say about working with us. Their success speaks for our dedication and expertise.
+          </p>
+        </div>
+      </div> */}
+      <div className="px-44 py-14 flex flex-col items-center gap-16 bg-offwhite">
+        <h1 className="text-4xl w-[695px] text-center text-secondary font-bold">
+          How to Get Started
+        </h1>
+        <div className="flex gap-6">
+          <div className="grid grid-rows-6 gap-6">
+            <div className="bg-white pt-6 rounded-xl row-span-3 flex flex-col justify-between gap-8">
+              <div className="px-6 pr-20 flex flex-col gap-3">
+                <div className="bg-primary w-max rounded-lg px-4 text-xs text-white p-2">
+                  <span>Step 1</span>
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold">Sign up on Umurava Platform</h2>
+                  <p className="font-light w-[400px]">Submit your completed project for evaluation</p>
+                </div>
+              </div>
+              <div className="self-end">
+                <img src={mockupOne} alt="" />
+              </div>
+            </div>
+            <div className="bg-white pt-6 rounded-xl row-span-3 flex flex-col gap-8">
+              <div className="px-6 pr-20 flex flex-col gap-3">
+                <div className="bg-primary w-max rounded-lg px-4 text-xs text-white p-2">
+                  <span>Step 2</span>
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold">Browse Open Challenges</h2>
+                  <p className="font-light w-[400px]">
+                    Explore the range of challenges and hackathons and choose one that aligns with your interests and career goals
+                  </p>
+                </div>
+              </div>
+              <div className="self-end">
+                <img src={mockupTwo} alt="" />
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-rows-6 gap-6">
+            <div className="bg-white py-6 rounded-xl row-span-2 flex flex-col gap-14">
+              <div className="px-6 pr-20 flex flex-col gap-3">
+                <div className="bg-primary w-max rounded-lg px-4 text-xs text-white p-2">
+                  <span>Step 3</span>
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold">Register and Participate</h2>
+                  <p className="font-light">
+                    Sign up for the challenge and start working on the project.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white py-6 rounded-xl row-span-2 flex flex-col gap-14">
+              <div className="px-6 pr-20 flex flex-col gap-3">
+                <div className="bg-primary w-max rounded-lg px-4 text-xs text-white p-2">
+                  <span>Step 4</span>
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold">Submit your work</h2>
+                  <p className="font-light]">
+                    Submit your completed project for evaluation
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white py-6 rounded-xl row-span-2 flex flex-col gap-14">
+              <div className="px-6 pr-20 flex flex-col gap-3">
+                <div className="bg-primary w-max rounded-lg px-4 text-xs text-white p-2">
+                  <span>Step 5</span>
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold">Receive Feedback and Recognition</h2>
+                  <p className="font-light]">
+                    Get feedback on your work and celebrate your achievements
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="px-24 w-full">
+        <div className="w-full p-16">
+          <div className="bg-primary rounded-3xl p-14 px-0 flex overflow-hidden items-center justify-evenly text-white relative">
+            <div className="h-96 w-96 -top-40 -right-20 opacity-20 bg-white absolute rounded-full flex items-center justify-center">
+              <div className="h-4/6 w-4/6 bg-primary rounded-full"></div>
+            </div>
+            <div className="h-96 w-96 -bottom-72 left-20 opacity-20 bg-white absolute rounded-full flex items-center justify-center">
+              <div className="h-4/6 w-4/6 bg-primary rounded-full"></div>
+            </div>
+            <img src={image} alt="" />
+            <div className="flex flex-col gap-5">
+              <div className="w-[525px] flex flex-col gap-6">
+                <h1 className="font-bold text-3xl">
+                  Ready to Unlock Your Career Potential Today!
+                </h1>
+                <p className="text-lg">
+                  Join a challenge or a hackathon to gain valuable work experience, build an impressive portofolio and increase your chances to land job opportunities and accelerate your career growth
+                </p>
+              </div>
+              <button className="px-8 w-max text-sm py-4 capitalize font-semibold border-primary text-primary bg-white border  rounded-md">
+                View Challenge
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
